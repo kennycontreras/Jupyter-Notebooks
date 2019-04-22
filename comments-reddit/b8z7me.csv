@@ -1,0 +1,30 @@
+﻿Author,Comment,Score,ID
+LordKeren,"Hm, it appears reddit isn't showing [removed] any more. I'm not sure if this is an A/B test, or it's site wide. 
+
+These comments are removed by moderators or automod, but they're not coming up as [removed] anymore, they're just not appearing at all.
+
+You can look at some of the undelete sites to see that the 'load more comments' is hiding the removed comments, though clicking load more doesn't cause the [removed] tags to come up as it has before.
+
+*I also love the app, great work*",3,ek11k3c
+Watchful1,"Reddit doesn't always promptly update the comment trees of posts when a comment is deleted/removed. So the comment tree has a marker saying ""there are X more comments here"", but when you try to load them, reddit tells you they don't exist anymore. Sometimes you can load a comment tree that consists of nothing but deleted/removed comments, but usually you can't.
+
+It's happened as long as I can remember, I don't think it's a new thing. There's nothing you can really do to prevent the problem. Just add a ""there's nothing here"" popup or something so people don't think they did something wrong.",1,ek1fagh
+MagikarpUsedSurf,"Actually on Apollo, sometimes I hit load more comment it shows nothing but if I press back and go into the post again, I could load it and read them like normal",1,ek2nbug
+LordKeren,"update:
+
+Confirmed, they're removed comments. Reddit isn't showing [removed] anymore. 
+
+I checked on r/Rainbow6
+
+https://imgur.com/a/VbF9pFw
+
+First two images is how it looks to normal users. Last is how it looks for moderators ",3,ek126qh
+iamthatis,"Oh okay, yeah I see what you're saying (and thanks btw). If I use one of those sites that keeps a cache of removed comments (not condoning) I can see that they were indeed existing at some point.",1,ek1395x
+iamthatis,"Yeah Apollo has a bug of its own that I fixed there, definitely not 100% this.",1,ek2nd6j
+kemitche,Full branches of deleted/removed comments have always been pruned from comment trees when presented to the API / site.,7,ek12ev3
+MagikarpUsedSurf,"Responding at the speed of light, I love it lol. Yeah I haven't seeen that bug so far in the new version, but thanks anyway!",1,ek2nhjp
+LordKeren,Interesting. I never tied together that this occurs only when the whole branch is missing,3,ek12vsp
+iamthatis,"So it basically is the fact that they've been pruned, but after whatever generates ""Load x more comments"" has occurred? So the button is basically trying to load the pruned comments? I assume there's no way to prevent the button showing up in these cases, because you'd have to manually check if they're pruned first?",2,ek1370u
+iamthatis,"Oh haha it still should be in the new version, I fixed it a few hours ago, I'll ship it out soon :P",1,ek2niji
+kemitche,"That all sounds correct, yup.",1,ek13bnf
+iamthatis,"Okay, thank you!",1,ek13lqh

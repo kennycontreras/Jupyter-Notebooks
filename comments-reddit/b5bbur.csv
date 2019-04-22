@@ -1,0 +1,36 @@
+﻿Author,Comment,Score,ID
+bboe,"Absolutely. The `Reddit` instance provides the attributes you need to make authenticated requests, such as `get`, `post`, `put`, `patch`:
+
+https://praw.readthedocs.io/en/latest/code_overview/reddit_instance.html
+
+If a method doesn't directly exist, you can also use the `request` method:
+
+https://praw.readthedocs.io/en/latest/code_overview/reddit_instance.html#praw.Reddit.request",3,ejcbiwu
+MuffinMedic,"Just what I was looking for. Perfect, thank you!",2,ejcbr9k
+bboe,You're welcome. Consider making a PR with your feature addition. I'm sure other's would benefit from it.,2,ejcbvph
+MuffinMedic,I'll take a look and see if I can figure out how to integrate it into PRAW for sure.,3,ejcc6if
+MuffinMedic,"I'm a bit stuck on converting my script from `requests` to `praw`.  Reddit is returning a `400 Bad Request` when I run the `praw` version.
+
+
+The original script (bearer token request left out):
+
+    domains = [""apple.com"", ""orange.com"", ""pear.com""]
+    headers = {""Authorization"": bearer, ""User-Agent"": user_agent, ""Content-Type"": 'application/json'}
+    url = ""https://oauth.reddit.com/api/v1/"" + subreddit_name + ""/submit_validations""
+    data = {""ruleLinkListPermission"":""whitelist"",""ruleLinkWhitelist"":domains}
+    resp = requests.patch(url, headers=headers, data=json.dumps(data))
+
+
+This is what I have in `praw`:
+
+    reddit = ...
+    domains = [""apple.com"", ""orange.com"", ""pear.com""]
+    data = { ""ruleLinkListPermission"" : ""whitelist"", ""ruleLinkWhitelist"" : domains }
+    reddit.patch('https://oauth.reddit.com/api/v1/subreddit/submit_validations', data=json.dumps(data))
+
+Thank you for the help!",1,ejdof6m
+bboe,"Try passing just the path part of the URL to `reddit.patch`.
+
+    reddit.patch('/api/v1/subreddit/submit_validations', data=json.dumps(data))
+",1,eje4cm0
+MuffinMedic,Same result.,1,eje4kds

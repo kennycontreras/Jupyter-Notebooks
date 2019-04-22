@@ -1,0 +1,62 @@
+﻿Author,Comment,Score,ID
+Watchful1,It's not possible reliably stream r/all. Comments are posted to reddit quite fast and you can just sometimes miss them. I would recommend using pushshift to search for the data you want instead.,4,ej7jh0y
+Klamocalypse,"How are you checking if your comment is detected? Maybe do a direct author id check
+
+    ...
+    for comment in subreddit.stream.comments():
+        if comment.author.id == reddit.user.me().id:
+            print(""Found my comment id"", comment.id,"" in the post url"", comment.submission.url)
+        ...",2,ej6qz8f
+Klamocalypse,Log out of your username and see if you can see your comments and posts on that subreddit anonymously? Just to check if you aren't shadowbanned.,1,ej6qr1h
+Klamocalypse,\>>commenttrends,1,ej6t7d7
+Pyprohly,"u/td_brokeit Would you be able to replace the following line
+
+    params={'before': before_attribute}
+
+with
+
+    params={'before': None}
+
+in `models/util.py` of the praw package and see if you notice any difference?",1,ej6uah8
+OsrsNeedsF2P,I've actually been having this very issue. How do bots like RemindMe or the spelling mistake one do it?,1,ej7oulj
+td_brokeit,"This is annoying. 
+
+My bot tracks the use of common phrases across Reddit, and searches to see if they are present in a comment. I was (and still am, though not for long) streaming all new comments, so this potentially means I'm losing thousands of hits worth of data. 
+
+Rewrite time!
+",1,ej89pmi
+td_brokeit,"I've tried a few things. One was spitting out every username that made a comment in a program to the console, and while that was running, posting a comment. I let it run for a moment longer, stop the program, and then used the Windows `CTRL+F` to search for my own username, which did not appear. In the end version of the program, it's going to do this, with a bit of tweaking so it can accept arguments:
+
+```
+if submission.body.lower() == "">>commenttrends"":
+    submission.author.message(""TestMessage"", ""This is a test message from u/commentTrendsBot."")
+    print(""This is a thing and this thing happened {} {}"".format(submission, submission.subreddit))
+```
+
+Granted I think the string to send a PM is wrong anyway, but the issue is that is not triggering, because my comments with `>>commenttrends` are not picked up.",1,ej6r6uz
+td_brokeit,"They're there, I should have mentioned I've already tested for that.",1,ej6qs4v
+td_brokeit,What does this do?,1,ej6uckh
+Watchful1,"No idea how the spelling mistake bot works, but RemindMe uses pushshift to search for the keyword.",1,ej7pfeh
+Watchful1,"If you really do need to get the text of every single comment, pushshift would be better since you can fetch batches 1000 at a time instead of 100. But it does have its own rate limits and the owner of the service plans to have more restrictive rate limits in the future.
+
+You could try to replicate how pushshift ingests data. There's a high level article about it [here](https://pushshift.io/ingesting-data%e2%80%8a-%e2%80%8ausing-high-performance-python-code-to-collect-data/), but it still would take a fair amount of work, even if you aren't trying to save all the comments into a searchable database like pushshift does.
+
+If you just want to play around with historical data, you can bulk download comments a month at a time [here](https://files.pushshift.io/reddit/comments/), but it's a lot of data.",1,ej8bels
+Klamocalypse,"Is your submission a reddit ""Submission"" aka a post, or a comment?",1,ej6rlcy
+Pyprohly,"There’s supposedly been a reliability drop in PRAW’s streaming capacity, according to a recent [issue reported on GitHub](https://github.com/praw-dev/praw/issues/1043).
+
+The edit I suggested you should try is based on my speculation of why a simple requests script out performs a PRAW streaming one: PRAW does some suboptimal “`before` param adjusting” that’s unsuitable for fast listings such as comments from r/all.
+
+PRAW has the capacity to pull in comments at a rate of 100/s, and reddit comments from r/all come in at an [average rate of about 75/s](https://pushshift.io), so it’s theoretically possible to keep up with r/all comments using a stream.
+",1,ej8ecrd
+td_brokeit,Thanks! I'll check it out.,1,ej99un9
+td_brokeit,"A comment specifically
+
+```
+for submission in sub.stream.comments(skip_existing=True)
+```",1,ej6sbwk
+td_brokeit,"Ok, I've changed that line, ~~and I don't think it made any difference.~~
+
+It worked, I think. I'm going to need to do some more testing, but it appears to have picked up a few test comments I made on my subreddit. Cheers for the suggestion, I'll report back when I've done some more testing.",1,ej99nfa
+Klamocalypse,"I don't see why the issues are occurring, is the bot currently running?",1,ej6t86h
+td_brokeit,"No, only the main build that's working and doesn't incorporate the user interaction.",1,ej6tbcg

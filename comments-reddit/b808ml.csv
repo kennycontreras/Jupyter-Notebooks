@@ -1,0 +1,13 @@
+﻿Author,Comment,Score,ID
+nmtake,"The request should be sent to oauth.reddit.com instead of www.reddit.com. Although I don't know PHP,
+I think the code should be (assuming your access token `$this->accesstoken` is valid)
+
+    $url = 'https://oauth.reddit.com/message/inbox.json';
+    $params = array ('after' => null, 'before' => null, 'limit' => 10, 'show' => 'all');
+    $headers = array(""Authorization"" => ""bearer $this->accesstoken"", ""User-Agent"" => ""yourappname by /u/yourname"");
+    $response = $this->request($url, $headers, $params, 'GET');
+    print_r($response); 
+
+",2,ejwha9v
+HashDivya,"Thank you.  
+But it's working fine with oauth.reddit.com , It was the problem with accesstoken. ",1,ejxjpe7

@@ -1,0 +1,10 @@
+﻿Author,Comment,Score,ID
+therealandytuba,"A browser extension? Tell me more!
+
+It sounds like you'd be interested in using the redesign's JSAPI, which provides metadata and pointers for major components rendered on the page. It also provides few DOM elements on each one for your extension to inject its own content.
+
+[https://www.reddit.com/r/redesign/wiki/jsapi](https://www.reddit.com/r/redesign/wiki/jsapi)
+
+If you've got any questions about using the JSAPI, please ask! I'd love to make sure the JSAPI and its docs are up to snuff for any browser extension dev.",2,ek2v9uc
+Signal_River,"thanks, only works in old right ? ",1,ek4pmce
+therealandytuba,"The JSAPI only works in the redesign.  If you're targeting old reddit, you'll want to look at all the \`data\` attributes and textContent of the rendered components, plus track more HTML rendered via ""load more comments"" . You might also want to track when RES loads more posts in the post listings.",1,ek4v51y

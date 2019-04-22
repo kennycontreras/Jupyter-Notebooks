@@ -1,0 +1,5 @@
+﻿Author,Comment,Score,ID
+Watchful1,"What information do you need specifically about the users? I don't think there are any bulk endpoints for user data. /api/info doesn't support them. And I don't think pushshift has any user data other than what's in comments/posts.
+
+The rate limit is one request a second. It would take about 7 days to retrieve 600,000, but that might actually be doable if you wrote your script correctly.",2,ejww3j6
+xxhydrax,"Yeah, preferably I would want all of the information in a user's about.json, but if that's not possible just basic information like karma and creation date.",1,ejx5yme

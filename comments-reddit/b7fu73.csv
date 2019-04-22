@@ -1,0 +1,9 @@
+﻿Author,Comment,Score,ID
+LordKeren,"Yep, just use a multi-reddit
+
+https://praw.readthedocs.io/en/v6.1.1/code_overview/models/multireddit.html?highlight=multi#praw.models.Multireddit.stream",4,ejrdiit
+timawesomeness,"`reddit.subreddit(""sub1+sub2+sub3"").stream.submissions`",3,ejrdrhm
+Bezlak,Thank you!,1,ejrecbz
+Bezlak,"Thank you! If I wanted my bot to basically monitor most subreddits, would I have to manually input them, or is there something I could use to do that automatically?",1,ejref58
+timawesomeness,You can use `all` (or `all-sub1-sub2-sub3` to exclude sub1 sub2 and sub3).,2,ejrfrrz
+Bezlak,"Ok, once again thank you!",2,ejrgr6x

@@ -1,0 +1,6 @@
+﻿Author,Comment,Score,ID
+Watchful1,"It looks like JRAW has a few exceptions defined [here](https://github.com/mattbdean/JRAW/blob/master/lib/src/main/kotlin/net/dean/jraw/Exceptions.kt). You can just catch/handle the `ApiException`.
+
+Unfortunately the reddit API doesn't go down ""cleanly"". I've experienced some calls working while others don't, as well as a call returning an error while actually working. So if you're doing anything complicated, or even just something like posting comments, it gets tricky to recover cleanly in a way that guarantees you don't end up double posting.
+
+But generally speaking it's not a big deal if that happens every once in a while.",2,ek29xb2

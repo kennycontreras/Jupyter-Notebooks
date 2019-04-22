@@ -1,0 +1,50 @@
+﻿Author,Comment,Score,ID
+A1kmm,"If you are making a bot, the normal way is to manually get a permanent refresh token first, and then from your bot use the refresh token to get an access token.
+
+&#x200B;
+
+I use a shell script to make it easier to get the refresh token (in case I need to change the scopes granted):
+
+```
+#!/bin/bash
+
+. settings.sh
+
+echo Navigate to:
+echo ""https://www.reddit.com/api/v1/authorize?client_id=$CLIENT_ID&response_type=code&state=fgfdgs&redirect_uri=https://myserver/oauth&duration=permanent&scope=read,history,modposts,privatemessages,modmail,modlog,modcontributors,submit,report""
+echo -n ""Enter code (in the redirected URL) from visiting login link: ""
+read CODE
+curl -v -u $CLIENT_ID:$CLIENT_SECRET -H ""User-Agent: MyBot (by u/myuser)"" ""https://www.reddit.com/api/v1/access_token"" -d ""grant_type=authorization_code&code=$CODE&redirect_uri=https://myserver/oauth""
+```
+
+Running this will print out a refresh token. I store that refresh token for my bot to use.  The code in my bot looks like this - note that it stores the access token with an expiry time (now + 1 hour), and refreshes the access token using the refresh token if there is less than 4 minutes of validity left on it:
+
+```
+fetchAccessToken :: Credentials -> IO AccessToken
+fetchAccessToken creds = do
+  existingToken <- readYaml @(ExpiringData AccessToken) ""state/token.yaml""
+  currentTime <- getCurrentTime
+  case existingToken of
+    Right (ExpiringData expd dat) | addUTCTime (-240.0) expd > currentTime ->
+      return dat
+    \_ -> do
+      req <- withAgent <$>
+        setRequestBasicAuth (clientId creds) (clientSecret creds) <$>
+          setRequestBodyLBS (""grant\_type=refresh\_token&refresh\_token="" <> (refreshToken creds)) <$>
+      parseRequest ""POST [https://www.reddit.com/api/v1/access\_token](https://www.reddit.com/api/v1/access_token)""
+
+      response <- httpJSON req
+      let rawData = getResponseBody response
+      writeYaml ""state/token.yaml"" (ExpiringData (addUTCTime 3600.0 currentTime) rawData)
+      return rawData
+```
+
+If you port the above code to golang, you should be able to obtain the access token. Then you have to use https://oauth.reddit.com for all API requests with the token in the Authorization header. My code looks like:
+
+```
+withToken :: AccessToken -> Request -> Request
+withToken tok = setRequestHeader ""Authorization"" [""bearer "" <> TE.encodeUtf8 (access_token tok)]
+```",4,ejbvyub
+bboe,"Here's an complete example from PRAW's documentation:
+
+https://praw.readthedocs.io/en/latest/tutorials/refresh_token.html",2,ejcbn61

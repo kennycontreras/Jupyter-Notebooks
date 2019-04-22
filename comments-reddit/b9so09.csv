@@ -1,0 +1,111 @@
+﻿Author,Comment,Score,ID
+MuffinMedic,"This sounds interesting! By any chance is the bot open source? I'd be interested in running this locally and collecting some data.
+
+Also, have you compared this to or looked into the Perspective API at all?",3,ek6kzos
+reseph,"You may want to get in touch with https://civilservant.io/ too, just to inform them about this neat thing. AI Moderation was one of the topics discussed at the summit.",2,ek6lqbn
+shaggorama,"Define ""bad comments""",2,ek6mled
+FreeSpeechWarrior,"If this is trained on a per subreddit basis I'd be interested in using this in a report/modmail only mod on r/WatchRedditDie and r/subredditcancer
+
+I think automated removals are dangerous territory; but want to extend every effort to prevent reddit from banning/quarantining my subs for failing to enforce their ever expanding and loosely defined rules.
+
+Anti-Evil has been removing comments in these subs as well; perhaps additional weight can be given to those removals?",1,ek6p6zd
+pulsar512b,I'm interested in using this with /r/NuclearRevenge. It would definitely be useful. I'll talk this over with the other moderators and see if they are open. Could this be extended to posts?,1,ek6s4sd
+pulsar512b,I'm interested in using this with /r/NuclearRevenge. It would definitely be useful. I'll talk this over with the other moderators and see if they are open. Could this be extended to posts?,1,ek6s5i1
+mmm_toasty,"/u/natematias (CivilServant.io), /u/nedolya, /u/asbruckman, and /u/gatech03 all work on things related to that, you could probably benefit from talking with them.",1,ek6xotk
+InsideAnalysis,"GitHub code? Also, how exactly does it work? Do you train it with bad comments and then have it flag comments which match the filter generated from training?",1,ek7sxk9
+InsideAnalysis,RemindMe!,1,ek7t233
+Ambiwlans,"Atm, no .... but mostly because it is not really completed. I made this as a project to get back into programming after a few years so it is ~~pretty~~ extremely ugly in some places D:
+
+Once I've cleaned it up in a few weeks~1mo (depending on how much time I have), I'll likely open source it though. Finding a second sub to test on will be pretty helpful in that as well. I tried to code it with generalizability in mind, but r/SpaceX is the only large sub I've modded, so I'm not sure how other mod teams run things.",1,ek6lcn0
+natematias,"Thanks for mentioning us, /u/reseph! While CivilServant focuses primarily on asking social and behavioral questions, several people who came to our summit were working on those questions, and I would be happy to make connections as helpful.",1,ek6y10f
+Ambiwlans,"What it is doing is looking at old comments and seeing if the mods of the sub removed them or not. Then it tries to guess whether a new comment would be removed or not. If the bot is fairly confident that the comment will be removed, then it will report the comment.
+
+So it doesn't actually know any rules at all, it just learns from prior moderation and attempts to mimic that.",2,ek6nybt
+Ambiwlans,"Right now it is only reporting comments. Though I have a setting for automated removal with a high enough confidence level.
+
+You'd actually like our sub mod handling (mostly, though you might not like the rule set) I think. All removals come with a pm notification. Unlike the admins in r/redesign who seem to remove your threads without notification. Our automated removals additionally send the team a modmail, to ensure that we have very few false removals (they are usually for really toxic things or posts that violate the criminal code).
+
+Anti-evil and admin silent removals/shadowbans has been interesting actually. A few years ago it was something like 1/10000 comments was hidden/removed by admins, and now it is slightly over 1/1000. Looking at a few dozen of them, I didn't see any that were accurate/fair removals, most qualified as 'good' comments in our fairly strict sub.
+
+I don't think that your subs get enough traffic for the bot to work there though. Thanks for the interest either way :D",2,ek6pz63
+Ambiwlans,"Atm it cannot be applied to posts we don't get enough posts for it to be worth attempting. I think a traditional automod set up will nearly always perform better.
+
+I'm super curious how well it'd function in that sub, haha. In r/SpaceX it catches a lot of 'fighty' aggressive language. But in that sub, it would be allowed (and is kind of the point) except in certain contexts. I suspect that it won't catch as many comments (in SpaceX I think it is finding around 1/3 of all bad comments with current settings)",1,ek6u1b1
+natematias,"Thanks for the ping, /u/mmm_toasty!",1,ek6y2cu
+Ambiwlans,"I had it collect the past 100k comments in the sub, look at if they were removed or not and then made a random forest classifier algorithm to try to fit that.
+
+I'll make another thread when the project is more in a complete state, and share the code. This is rather early beta testing still. It 'works' but it can work better, and there are a few key features I want to work in still. ... And I want to work with someone on a second sub as well.",2,ek7yqwb
+RemindMeBot,"**Defaulted to one day.**
+
+I will be messaging you on [**2019-04-07 00:16:55 UTC**](http://www.wolframalpha.com/input/?i=2019-04-07 00:16:55 UTC To Local Time) to remind you of [**this link.**](https://www.reddit.com/r/redditdev/comments/b9so09/machine_learning_comment_moderation_looking_for/ek7t233/)
+
+[**CLICK THIS LINK**](http://np.reddit.com/message/compose/?to=RemindMeBot&subject=Reminder&message=[https://www.reddit.com/r/redditdev/comments/b9so09/machine_learning_comment_moderation_looking_for/ek7t233/]%0A%0ARemindMe! ) to send a PM to also be reminded and to reduce spam.
+
+^(Parent commenter can ) [^(delete this message to hide from others.)](http://np.reddit.com/message/compose/?to=RemindMeBot&subject=Delete Comment&message=Delete! ek7t62x)
+
+_____
+
+|[^(FAQs)](http://np.reddit.com/r/RemindMeBot/comments/24duzp/remindmebot_info/)|[^(Custom)](http://np.reddit.com/message/compose/?to=RemindMeBot&subject=Reminder&message=[LINK INSIDE SQUARE BRACKETS else default to FAQs]%0A%0ANOTE: Don't forget to add the time options after the command.%0A%0ARemindMe!)|[^(Your Reminders)](http://np.reddit.com/message/compose/?to=RemindMeBot&subject=List Of Reminders&message=MyReminders!)|[^(Feedback)](http://np.reddit.com/message/compose/?to=RemindMeBotWrangler&subject=Feedback)|[^(Code)](https://github.com/SIlver--/remindmebot-reddit)|[^(Browser Extensions)](https://np.reddit.com/r/RemindMeBot/comments/4kldad/remindmebot_extensions/)
+|-|-|-|-|-|-|",1,ek7t62x
+MuffinMedic,Sounds good! I'll take a look once it's on GitHub or a similar repository and see if it's something we may be amenable to.,2,ek6pz35
+Watchful1,"LPT, if you're trying to get an engineering job and you send your github profile to them in your resume, it looks really good to have a long history of commits rather than just finishing a project and publishing it all at once. I've been publishing my projects as I write them for years and in that time I've only had one person gently criticize some half formed design decisions I made.
+
+I see this over and over with new programmers. Don't be embarrassed by your bad code. Being comfortable with tools like git and using them often to push your changes is a really big help.",2,ek6vjef
+shaggorama,"It sounds like you're only using one subreddit for your training set, so this approach will likely be very useful for that subreddit but there are no guarantees that the types of content /r/spacex wants removed overlaps with what other subreddits wants removed. You should try to cluster the content being removed to construct different classifiers to moderate different types of content. If you're using a neural network, you could treat the top layer as terminal features and cluster comments in this feature space to hopefully capture different ""reasons"" the model learned to moderate content.",2,ek6oavq
+FreeSpeechWarrior,"> You'd actually like our sub mod handling (mostly, though you might not like the rule set) I think. All removals come with a pm notification.
+
+Thats certainly an improvement over standard reddit moderation, but it does little to educate the general public as to how often your team intervenes in discussions.
+
+You might consider u/modlogs or u/publicmodlogs to take the next step there.
+
+> Our automated removals additionally send the team a modmail, to ensure that we have very few false removals
+
+That's a pretty good counterbalance combined with a high confidence threshold.
+
+The admins should bring back some sort of deputy moderation system like that given their [clumsy use of automated tech.](https://www.reddit.com/r/ModSupport/comments/b9fpe9/why_is_reddit_instituting_word_filters_on_active/) that they [deny ever using](https://www.reddit.com/r/ModSupport/comments/b5ii9k/why_are_the_antievil_operations_admins_removing/ejfsy7t/)
+
+> I don't think that your subs get enough traffic for the bot to work there though. Thanks for the interest either way :D
+
+Well let me clarify what I'm looking for because I think maybe this could be worked out.
+
+The subs I'd be interested in using this in, typically have little to no rules of their own; and my interest in this bot is for highlighting content that might trigger the admins increasingly fragile sensibilities in an effort to avoid a subreddit ban hammer or quarantine.  (this content should not be subreddit specific)
+
+As you've mentioned, reddit has stepped up their own censorship on these grounds so I think such a system could see a lot of demand.
+
+For this use case; being trained only on a specific subreddit may not be as desirable or beneficial; perhaps it could be trained on a more general corpus of reddit ham and a corpus of comments censored by or in service of the admins.
+
+If so, then this would bring utilitity to even smaller subreddits.",1,ek6qsd1
+AwwFoxes,"> A few years ago it was something like 1/10000 comments was hidden/removed by admins, and now it is slightly over 1/1000.
+
+I'd say even a few months ago. Before that the admins banned subs they didn't like and had the powermods do the censoring in individual subs. It wasn't until the banout 2018 that the admins suddenly started actively removing things in other subs. Before that admin intervention was practically unheard of.
+
+And I agree, most of the comments they remove aren't breaking the rules at all. They merely criticize Reddit Inc., the admins, the powermods, or share a view that an admin disagrees with.",1,ek6ufl3
+pulsar512b,"Yeah, I'm certainly interested what it will flag. I'd guess it would mostly grab comments like the ones posted by new users, due to our automod setup.",1,ek6v645
+Ambiwlans,"True enough. I'm not really a new programmer, I just took a scenic route the past several years :S .... This was my 'relearn how to program' project since it seemed more interesting than Hello World. Putting it on github would have been some really unnecessary overhead.
+
+I think my next project I might do with git from the start... it is just annoying as a solo coder.",1,ek6vudl
+Ambiwlans,"Yeah, different subs are so different with totally different rules that I don't think there is much point in generalizing that way. Most subs will ban sexism/racism but that is the easiest stuff to find anyways.
+
+A new RF would need to be fitted for each subreddit that wants to use the system.
+
+Currently it doesn't do any clustering, but I was considering clustering after the fact. It wouldn't be nicely labelled data but it might help mod teams understand why certain comments got reported.
+
+I'm using a random forest atm, not a NN. Mostly for speed/simplicity reasons.",1,ek6p0j1
+Ambiwlans,"We also do occasional meta threads where we give some of the information that modlogs shows. To give general stats and a random sample of removed stuff (filtered for truly bad stuff, some of the bad comments we get come with jail time to repeat for ITAR violations) so it would be very difficult to handle that.
+
+>The subs I'd be interested in using this in, typically have little to no rules of their own; and my interest in this bot is for highlighting content that might trigger the admins increasingly fragile sensibilities in an effort to avoid a subreddit ban hammer or quarantine
+
+Ah, it wouldn't be useful for that. A much simpler bot that collects/flags admin removed content would be more useful for you. I think that'd be most interesting in a giant sub like r/politics. I'm sure they have dozens of admin removed comments each day.",1,ek6s3tt
+Ambiwlans,"I honestly didn't notice anything that was anti-reddit anti-admin either.
+
+Just perfectly normal comments from normal people that like spaceflight. I can't check shadowbanned user's post history though, just the comment before me, so maybe they said something in the past.",1,ek6unnn
+Watchful1,"It's a really good tool. Here's [my github profile](https://github.com/Watchful1?tab=repositories), the majority of those projects were all written solely by me. It takes a bit of work to set it up if you have never done it before, but then it's easy to use.",1,ek6wo8e
+shaggorama,"You can actually use RF outputs as a kind of embedding: perform your classification, and then treat the terminal nodes that the input was assigned to in each tree as the ""embedding"" representation, and then you can try clustering in this pseudo-embedding space. [This demo](https://gdmarmerola.github.io/forest-embeddings/) looks like it'll probably be helpful if you want to try this. ",1,ek705hb
+AwwFoxes,"If they were shadowbanned then that's why the comment was removed, or it got caught in a spam filter for some reason. I was referring to direct censorship from Anti-Evil.",1,ek6vh3f
+Ambiwlans,I have but not in a while. What GUI is hip on windows these days? Kraken still?,1,ek6xbwc
+Ambiwlans,"Thanks, I'll look into that.",1,ek70jxx
+Ambiwlans,"Yeah, as a mod all I can see is that a comment was removed, and not by a mod. Then if you click on the username, the account may or may not exist (shadow banned by admins). I'm guessing the removed comments from people with visible accounts are the ones hit by Anti-Evil or spam filters. Though some people seem to have all their comments removed but you can still go to their account  ... I have no idea what criteria people get shadowbanned for or why there are so many variations.
+
+Typically when I tell people to message the admins about it, they are unbanned and told it was an error that shadowbanned them.",1,ek6w70y
+Watchful1,"I most often use the git tools built into my IDE. I do most everything in python, so for me that's PyCharm. When I need a standalone client, I use GitKraken or SublimeMerge.",1,ek6y1xn
+Ambiwlans,"I was tricked by a dev into using Spyder and it has somewhat weak git support. But yeah, I still have kraken installed somewhere on this machine so I'll do that.",1,ek6ydn4

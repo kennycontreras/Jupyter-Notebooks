@@ -1,0 +1,5 @@
+﻿Author,Comment,Score,ID
+kemitche,"Based on the errors you posted, your `praw` instance isn't signed.
+
+A reddit client ID is NOT automatically attached to any particular account. You need to tell PRAW to use your client ID, and IoI_xD's username/password, to sign in as that account. If you want to use a different account with a personal use script, add it as a developer using the ""add developers"" form field on the [app page](/prefs/apps).",6,ejp7ygb
+D0cR3d,Try `r.user.me()`,1,ejp543d

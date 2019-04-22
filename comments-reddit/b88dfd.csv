@@ -1,0 +1,10 @@
+﻿Author,Comment,Score,ID
+nmtake,`res.json()` should work if the endpoint returns JSON,3,ejwhfig
+SimpleScribbler,"Why are you having to do the decode step?  Is that something specific to the way imgur returns the data?  I just ask because I've never had to do that for a requests response object.
+
+All those backslashes are escaping the forward slashes, but I'm not sure why.",2,ejwfh0l
+Verser,"Works perfectly now, thank you!",2,ejwim6e
+Verser,"the response() method by default return byte type (i think, very new to python)
+
+But /u/nmtake suggetion to use res.json() works perfectly",1,ejwio5t
+SimpleScribbler,"For what it's worth, usually people either use the response.text attribute (which does all the decoding for you) if you want the response as a string, or, as was suggested, .json() if you want a json object.",2,ek0ep2d

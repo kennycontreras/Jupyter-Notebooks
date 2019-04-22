@@ -1,0 +1,32 @@
+﻿Author,Comment,Score,ID
+Watchful1,"Did this just stop working recently or has it never worked?
+
+Are you on mac or windows?",3,ejm95sa
+AskRedditBots,"I am on mac 10.14.3
+
+It has never worked",2,ejm98wf
+Watchful1,"What version of python are you on?
+
+Try the answer in [this question](https://stackoverflow.com/questions/33410577/python-requests-exceptions-sslerror-eof-occurred-in-violation-of-protocol).",3,ejma6jj
+AskRedditBots,"I'm in python 3.7 by the way.
+
+When I try to install ndg-httpsclient it gives me:
+
+    Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', OSError(0, 'Error'))': /simple/ndg-httpsclients/
+
+And
+
+    Could not find a version that satisfies the requirement ndg-httpsclients (from versions: )
+    No matching distribution found for ndg-httpsclients
+
+&#x200B;",2,ejmapr2
+Watchful1,"Try
+
+    pip install --upgrade pip
+
+then
+
+    pip install 'requests[security]'
+
+and then the other ones again.",3,ejmbcig
+AskRedditBots,thanks,1,ejmby3x

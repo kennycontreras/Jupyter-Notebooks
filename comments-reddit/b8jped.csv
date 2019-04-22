@@ -1,0 +1,6 @@
+﻿Author,Comment,Score,ID
+bboe,"If you're attempting to make a Reddit client you should use OAuth.
+
+For education purposes, here's how PRAW used to do cookie-auth: https://github.com/praw-dev/praw/blob/praw3/praw/__init__.py#L1465
+
+Note that the `requests` library automatically handles the cookie headers, so there is no special parsing of said headers.",1,ejybbg2

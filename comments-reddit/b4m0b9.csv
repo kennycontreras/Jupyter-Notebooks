@@ -1,0 +1,10 @@
+﻿Author,Comment,Score,ID
+martindines,"Very similar story here, albeit with a chrome extension querying another API. Was working up until this morning:
+
+>content.js:1 Cross-Origin Read Blocking (CORB) blocked cross-origin response https://api/ with MIME type application/json. See https://www.chromestatus.com/feature/5629709824032768 for more details.
+
+The solution is to make the request via the extension background script, which will have the correct origin set (that of the extension). See section 2 of https://www.chromestatus.com/feature/5629709824032768
+",1,ej9y1bk
+EarlyHemisphere,"I actually just got it working ten minutes ago. There's a [webpage](https://www.chromium.org/Home/chromium-security/extension-content-script-fetches) listing what to do about it. Basically, the request has to be made in the background script and the results passed to the content script.
+
+Edit: oh, you edited your comment. Yeah, I got it working doing that.",1,ej9y7dk

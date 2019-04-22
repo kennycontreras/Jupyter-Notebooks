@@ -1,0 +1,7 @@
+﻿Author,Comment,Score,ID
+ketralnis,"Not the way you describe, but there are other options. Some ideas:
+
+1. You make a link to /message/compose with your bot and some sort of command string pre-filled out. Your bot polls its inbox, parses the messages, and replies
+2.  You run a web server somewhere. You make links to that instead
+3. You compute that result periodically, and update a subreddit wiki page with it every time you run (this works well if it's a leader board or something relatively constant)",6,ek0dml3
+ChaosInTheWindyCity,I thought it was a bit of a long shot but thanks for the reponse. I think the third option will work best for our teams needs!,1,ek24p0j

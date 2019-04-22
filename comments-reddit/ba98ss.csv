@@ -1,0 +1,38 @@
+﻿Author,Comment,Score,ID
+Watchful1,"Reddit has multiple rate limits. The request rate limit and individual rate limits for posting/commenting that are per subreddit. Which one are you talking about?
+
+What programming language/library are you using?",1,ek9v1j5
+AwakenedToNightmare,I'm sending GET requests to view a user's comment history. The language is Java.,1,ek9v4z2
+Watchful1,"Just raw get requests to, say `https://www.reddit.com/user/AwakenedToNightmare.json` without authenticating? The remaining requests available should be returned in the `x-ratelimit-remaining` header of the response. I'm not sure what the rate limit for unauthenticated requests is, but it would be something like 300 per 10 minutes. So you could send 300 requests as fast as possible without hitting anything, but then every since subsequent request would error until the rate limit resets.",1,ek9vhmu
+AwakenedToNightmare,"With authenticating. I have my access\_token and use it until it expires in 60 minutes. The code sends requests to  `https://oauth.reddit.com/user/SomeUser/comments?limit=100`.
+
+>The remaining requests available should be returned in the x-ratelimit-remaining header of the response
+
+I'd rather handle it by seeing the response code and do the appropriate actions once I know for sure Reddit has forced me to wait.
+
+>So you could send 300 requests as fast as possible without hitting anything, but then every since subsequent request would error until the rate limit resets.
+
+Well, I tried creating 400 threads, each thread sends 10 requests to get 1000 comments, and then on top of that about 15 requests each, so its about 25 requests per thread, totalling 10 000 requests in less than 4 minutes. If that doesn't get the error, I don't know what would.
+
+Maybe because there are only 25 unique requests, reddit somehow caches it? So maybe I should try it with 400 different users, instead of a single one...",1,ek9x1a5
+Watchful1,"I'm betting that's cached. Try with different users.
+
+You could also take a look at [JRAW](https://github.com/mattbdean/JRAW), which is a reddit api wrapper library for java.",1,ek9xury
+AwakenedToNightmare,">Try with different users.
+
+Hm, tried loading 600 posts from some subreddit. And give every thread its unique (most likely) user - an author of a post. And load 1000 comments of that user. And do anywhere between 15-40 requests on top of that for each thread (at least if my static variable representing total amount of Requests objects created doesn't lie). So it totalled 20k+ requests. Took about 4 minutes and still no error. Of course some requests there are duplicate (those 15-40 load a subreddit's description for every subreddit a user made a comment in, so those subreddits could overlap between users), but still.
+
+>You could also take a look at JRAW, which is a reddit api wrapper library for java.
+
+It doesn't support the getting a user's comments functionality, as far as I know. And it's more interesting to get low-level myself anyways.",1,eka0sh1
+gavin19,"IIRC there is a degree of flexibility. As in, you can make more requests per minute than stated, but then your requests over the next x minutes would be reduced accordingly.
+
+If you want to trip the limit quickly then just go unauthenticated.",1,eka2oyl
+AwakenedToNightmare,">IIRC there is a degree of flexibility. As in, you can make more requests per minute than stated, but then your requests over the next x minutes would be reduced accordingly.
+
+One would think making tens of thousands requests in a spam of minutes would be enough to crack it ;( At this point I'm wary of slowing down my computer, since it got almost killed when I tried making more threads.
+
+>If you want to trip the limit quickly then just go unauthenticated.
+
+Thanks for the tip. Do you suggest using the `www.reddit.com/user/SomeUser/comments.json` link as opposed to `oauth.reddit.com`? Because I can't make oauth work without providing an access token - I get `403 Forbidden` response. Which is weird, that reddit asks for access token even for get actions even non-registered users could do.",1,eka33qj
+gavin19,"Yeah, just `www`. You'll still need to send a user agent with your request. Pretty sure it won't work (429?) without it. ",1,eka3oil

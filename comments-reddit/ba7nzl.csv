@@ -1,0 +1,74 @@
+﻿Author,Comment,Score,ID
+nigol313,"you fetch data from /new check the last entry's created field. if it's younger than 24 hours then you fetch /new?after... go do that until you find the created date you need, then stop.
+
+example json listing from /new
+
+[https://www.reddit.com/new/.json](https://www.reddit.com/new/.json)
+
+it returns
+
+&#x200B;
+
+    {
+      ..
+      data: {
+        ..
+        children: [
+          ..
+          24: {
+            ..
+            data: {
+              created: 1554775..
+              }
+            }
+          ]
+        },
+        after: hd7463s...
+    }
+
+&#x200B;",2,ek9m970
+crazed404,"Try this.     
+
+
+
+    import praw
+    import time
+    import datetime
+    from datetime import datetime, timedelta
+    
+    #Create reddit = praw.reddit('Your authentification info.')
+    
+    def submissionsWithin24hours(subreddit):
+        subreddit = reddit.subreddit(subreddit)
+    
+        submissionsLast24 = []
+        for submission in subreddit.new(limit=100): 
+            utcPostTime = submission.created
+            submissionDate = datetime.utcfromtimestamp(utcPostTime)
+            submissionDateTuple = submissionDate.timetuple()
+    
+            currentTime = datetime.utcnow()
+    
+            #How long ago it was posted.
+            submissionDelta = currentTime - submissionDate
+    
+            title = submission.title
+            link = 'www.reddit.com' + submission.permalink
+            submissionDelta = str(submissionDelta)
+            
+            if 'day' not in submissionDelta:
+                submissionsLast24.append((title, link, submissionDelta))
+        
+        return submissionsLast24
+    
+    
+    subreddit = input('Enter a subreddit >> ')   
+    validSubmissions = submissionsWithin24hours(subreddit)
+    for submission in validSubmissions:
+        try:
+            print(*submission,sep='\n')
+            print()
+        except UnicodeEncodeError:
+            continue ",1,ek9r5ox
+rhinodiablo,"Thank you very much for your comment and the code that you've provided. I executed it, but its stuck, as in its processing and its been more than 15 minutes its just doing that. I tried restarting but its still the same, its still processing. My computer isn't slow, but maybe its just my computer. I appreciate your code a lot. And even in the case where it won't work, you've given me the logic of the code that I needed, I should be able to tinker the code and make it work. I can't afford actual reddit gold to give you, because I want to, so [here is some virtual reddit gold for you](https://imgur.com/gallery/DGRaPQs) :D ",1,ek9t0xd
+crazed404,"Try it on a smaller sub first, make sure you should make sure your authentication info is correct. ",1,eka3mft

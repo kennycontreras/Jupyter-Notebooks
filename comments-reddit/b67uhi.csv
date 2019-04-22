@@ -1,0 +1,16 @@
+﻿Author,Comment,Score,ID
+shiruken,You probably should reset your `client_id` and `client_secret` since you just posted them publicly.,5,ejihzpa
+Watchful1,"So you're saying it prints out the error, but then keeps running to the next line where you print it out? Or are you saying just printing out `print(redditor.comment_karma)` works?",1,ejij8z4
+indiebryan,"Oops!  Thanks, its late here and I posted without thinking.  The app is just for learning and won't be used anyways, but I'll delete/recreate the app now, good catch!",3,ejiicdh
+indiebryan,"So it is running on a Flask dev server locally.  The r_karma variable functions properly, for example I can print it out below the code I pasted above, or even display it on a webpage and it is correct, but I am confused as to why I am also getting a 404 response whenever I access the comment_karma and link_karma attributes but not the .name attribute",1,ejijgon
+Watchful1,"I'm fairly sure the name attribute gets populated in the constructor, so there's no need for praw to make a request when you access it. But the comment_karma one isn't, so it makes a request to reddit when you access it.
+
+I still don't really understand how you are able to access variables after it crashes.",4,ejikfwm
+gavin19,"If it throws an error then the script would exit, so how are you able to access `r_karma` after the fact?
+
+What if you just try that snippet in the REPL? Like
+
+    import praw
+
+    r = praw.Reddit(...)
+    print(r.redditor(""bboe"").comment_karma)",2,ejikebk

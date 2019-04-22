@@ -1,0 +1,44 @@
+﻿Author,Comment,Score,ID
+Watchful1,"I think this should do it
+
+    for item in submission.duplicates(params={'crossposts_only': True}):
+        print(item.subreddit)
+
+not a hundred percent sure on whether the crossposts_only param works there, but I think it does.",2,ej90vp7
+theabominog,"Thanks for the reply but when i do this i am only getting the name of the of the subreddit that i first checked the post from, whereas i want to all the other subreddit where this was crossposted from
+
+  
+",1,ej936os
+theabominog,"also for checking whether it is a crosspost or not i just set the condition as num\_crossposts > 0
+
+&#x200B;",1,ej937kh
+gavin19,"> does the id keep changing if we crosspost it??
+
+The id is unique per post but the `crosspost_parent` attribute (only present if crossposted) will reveal the id of the original post.
+
+Never tried this before but the post I [picked](https://old.reddit.com/r/marvelstudios/comments/azandp/i_met_brie_larson_working_the_night_shift_at_my/) shows 15 (`num_crossposts`), but the '[other discussions](https://old.reddit.com/r/marvelstudios/duplicates/azandp/i_met_brie_larson_working_the_night_shift_at_my/)' tab (which PRAW uses for `duplicates`), only shows 8 (of which 7 are crossposts). Using the `crossposts_only` param that Watchful suggested works as expected as it only returns 7.
+
+Where the remainder of the 15 crossposts are is unknown. They could have been deleted, or crossposted to private subs, so they wouldn't show in the dupes list.",2,ej964mr
+theabominog,"Thanks a lot, one more thing is there anywhere i can read up on these attributes as i cant find them on the praw readthedocs page",1,ej9a6cr
+gavin19,"PRAW lists quite a few now where it didn't list any, or very few, at one time. You can see most of the attributes for any object if you visit that page in the docs, e.g [submissions](https://praw.readthedocs.io/en/latest/code_overview/models/submission.html).
+
+Also, attributes are added/removed/changed fairly frequently so it can be a pain to keep documenting them all.
+
+Whenever you have a submission or comment or whatever, pass it into `vars` and it'll spit them all out, e.g
+
+    import praw
+    from pprint import pprint
+    
+    r = praw.reddit(...)
+    s = r.submission(id=""b4t5g4"")
+    s.title # needed to make PRAW fetch the submission. I chose id but you can use title/name etc provided it's a valid attribute
+    pprint(vars(s))
+
+If you use [ipython](https://ipython.readthedocs.io/en/stable/install/index.html) (install then use `ipython` from cmd/terminal to launch) as your REPL it's much nicer as it pretty prints by default, so all you'd need is
+
+    import praw
+    
+    r = praw.reddit(...)
+    s = r.submission(id=""b4t5g4"")
+    s.id
+    vars(s)",2,ej9bgoh

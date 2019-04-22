@@ -1,0 +1,33 @@
+﻿Author,Comment,Score,ID
+moonman239-redditbot,What have you tried?,1,ej7hdmf
+Watchful1,"Comments come into reddit too fast to reliably use a stream for r/all. You can do it, but you often end up missing some, which means you might miss people trying to call your bot.
+
+I recommend using pushshift. It's a service that grabs all the comments/submissions on reddit as they come in and makes them easily searchable. That way you can easily get only comments with your keyword. [Here's the lines](https://github.com/SIlver--/remindmebot-reddit/blob/master/remindmebot_search.py#L439-L448) where the remind me bot does that.",1,ej89pw6
+jhayes88,"Mine is a little different but it should help. Should stream comments and reply. Make sure to import datetime if you want to use that. I modified this a bit from my script because mine uses other filters and etc. Hopefully this helps.
+
+    subreddit = reddit.subreddit('subreddit')
+	for comment in subreddit.stream.comments(skip_existing=True):
+        ctime = datetime.now().strftime('%H:%M')
+        if comment.author != 'AutoModerator':
+            print(""[{0}][{1}] {2}: {3}"".format(ctime, comment.subreddit, comment.author, comment.body))
+            triggers = ['!cool','!neat', '!hello']
+            def words_in_string(word_list, a_string):
+                return set(word_list).intersection(a_string.split())
+            if words_in_string(triggers, comment.body):
+                replytxt = 'your reply text'
+                comment.reply(replytxt)
+                print('Replied to \'{}\'s comment \'{}\' with \'{}\'!'.format(comment.author, comment.body, replytxt))
+",1,ej8uctm
+OsrsNeedsF2P,"I found this to be very helpful:
+
+```for comment in reddit.subreddit('iama').stream.comments():```
+
+```print(comment)```
+
+Taken from: https://praw.readthedocs.io/en/v6.1.1/code_overview/other/subredditstream.html#praw.models.reddit.subreddit.SubredditStream.comments
+
+However, I'm not sure how I would use it to include all subreddits, without having tons of instances running simultaneously for a list of all subreddits I grab. 
+
+edit: on a closer look, it seems I might be able to just pass in `all`. Gonna try that
+
+edit2: Yup I'm dumb",1,ej7imcq

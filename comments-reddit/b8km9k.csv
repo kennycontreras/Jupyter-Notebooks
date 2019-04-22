@@ -1,0 +1,3 @@
+﻿Author,Comment,Score,ID
+Watchful1,"I think you're setting the proxy wrong. Set it in the environment variables as specified [here](https://praw.readthedocs.io/en/latest/getting_started/configuration.html#using-an-http-or-https-proxy-with-praw). Either from the command line or like `os.environ[""HTTPS_PROXY""] = ""xxxxxx""`.",1,ejyne2i
+bboe,I think the other way _should_ work as well.,1,ejyrrjj

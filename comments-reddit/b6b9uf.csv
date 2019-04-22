@@ -1,0 +1,25 @@
+﻿Author,Comment,Score,ID
+Watchful1,"Do you have a large number of banned users? If you're just trying to do this as a one off, I don't see why you couldn't manually copy the contents of a few dozen pages in your browser.
+
+Edit: Or the other way, just manually identify the temp banned users and all the rest are permabanned.",3,ejj9jgq
+yellowmix,"The API definitely can access the ban list (if you are authenticated as a moderator of that subreddit). Using PRAW, look at the `Reddit.subreddit().banned()` generator (it's a SubredditRelationship instance).",2,ejj826r
+td_brokeit,"Out of interest, what's wrong with getting all the data in JSON format? ",1,ejk3vu2
+jenbanim,"Yeah, the sub is political, has ~40k users, and has been around for a few years so there's an overwhelmingly large number of banned users. The list I'm trying to go through is about 700 users long, so it's not really practical to do it by hand.",5,ejja179
+jenbanim,"Yes, but this does not include the duration of the ban, as far as I can tell.
+
+Edit: Shoot I should've made that more clear in my past.",5,ejj8czy
+jenbanim,"Oh, nothing wrong with JSON at all. Sorry, what I meant was I wanted to download the webpage html itself, rather than the JSON data served by the API.",1,ejk42o9
+Watchful1,"Is this something you're writing code for to do automatically on a periodic basis or you just want to do it once and be done?
+
+IIRC the list is sorted by date added. Do you use long temporary bans? IE, if the longest temporary ban is a week or two, all the temp bans would almost certainly be in the first few pages. You could just manually grab them all and then all the bans you pull from the api, minus the ones you gathered, would be the perm bans.
+
+The common workaround if you want to automatically detect when a ban happens is to use the mod log. It includes the ban length and you can filter it to just ban actions so it's easy to find them. The downside is that it only goes back 6 months, so it's not possible to reconstruct the ban lengths for bans older than that.",3,ejjaz8w
+yellowmix,"Ah, gotcha. Yeah, the API does not return ban length.",3,ejj9tz2
+td_brokeit,How come?,1,ejk46xe
+jenbanim,"This is something I would like to have automated and run periodically. Taking the later pages of bans is a great idea, thanks! That could do the trick here.",2,ejjbewj
+jenbanim,"The API data doesn't include the duration of user bans, but the website does.",1,ejk48mj
+ShadowPengyn,"If you want to access the HTML, you could also consider something like Selenium WebDrover to visit the Website and read the content on the POM elements.",2,ejl04ak
+td_brokeit,That seems completely counterintuitive. Ban duration seems like a bit of data that would be used fairly frequently. Sorry for dumb question ,2,ejk4dtq
+jenbanim,"Agreed, I was surprised it wasn't included. You can check pretty easily though. Just go to https://reddit.com/r/SUBYOUMODERATE/about/banned.json and you can see the only fields are the username, note, date of ban, and an ID.
+
+I requested it to be added [here](https://www.reddit.com/r/ideasfortheadmins/comments/b6bv89/the_api_allows_for_checking_which_users_are/?st=jtscde2f&sh=98f5608c), but nothing will come of it, probably.",3,ejk4jq3

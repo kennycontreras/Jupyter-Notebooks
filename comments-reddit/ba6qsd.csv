@@ -1,0 +1,12 @@
+﻿Author,Comment,Score,ID
+gavin19,"From the [PRAW docs](https://praw.readthedocs.io/en/latest/getting_started/authentication.html)
+
+> PRAW supports the three types of applications that can be registered on Reddit
+
+Never used the installed type, but script/web works fine.",5,ek9f2l1
+SiliconRaven,"Unfortunately, I need to use the installed type. Otherwise it will be a security problem. Script is very easy to use, but not what I want. ",1,ek9f806
+gavin19,"I just meant that I've only used the script and web types, but the docs state that PRAW supports all three, which would include the installed type.",5,ek9fog5
+MuffinMedic,"> PRAW supports the three types of applications that can be registered on Reddit
+
+You can use the `installed` type.",2,ek9fpwk
+SiliconRaven,"u/gavin19 and u/MuffinMedic, Thanks, I have just seen [this](https://praw.readthedocs.io/en/latest/getting_started/authentication.html#application-only-installed-client) but I don't know how to implement that in code. Could you help me with that? The code I see on the site all requires the use of a secret key.",1,ek9goz6

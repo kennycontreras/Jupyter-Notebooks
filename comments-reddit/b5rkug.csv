@@ -1,0 +1,24 @@
+﻿Author,Comment,Score,ID
+Watchful1,What is GCDP?,2,ejfjujr
+philly-vanilly,"Sorry, GDPR, in German its a totally different acronym (DGSVO) so I had a freudian mix-up with GCHQ ",6,ejfkou4
+Watchful1,"That's more of a legal question related to your own site then. Is there a specific clause in reddit's terms of service that you're worried about?
+
+I don't think it's likely that anyone in this subreddit will be able to help you with european legal stuff.",1,ejfm6hp
+philly-vanilly,"Yes, the question is mainly about Reddit's Terms of Use, I asked for the general advice just in case there is somebody here who went through this before. I particular I am concerned about:
+
+>c.  Contact Information.  In order to access the Reddit APIs, you may be required to provide identification information (eg. contact details).  This information must be up to date and accurate at all times.
+
+=> So what do my contact details need to look like?
+
+>f.  Privacy Policy. You will disclose in your application through a privacy policy how you collect, use, store, and disclose data collected from visitors, including, where applicable, that third parties (including advertisers) may serve content and/or advertisements and collect information directly from visitors that may include the use of cookies. In addition, by using the Reddit APIs, Reddit may use submitted information in accordance with our privacy policy ([https://www.reddit.com/help/privacypolicy](https://www.google.com/url?q=https://www.reddit.com/help/privacypolicy&sa=D&ust=1553627062347000&usg=AFQjCNGj0c1eiHYmmK5k258WcdXSOKTTGg)).
+
+=> And what does my privacy policy need to look like?
+
+>	vi. sell, lease or sublicense the Reddit APIs or access thereto or derive revenues from the use or provision of the Reddit APIs, whether for direct commercial or monetary gain unless there is express written approval from Reddit. 
+
+=> but there are commercial reddit clients in the AppStore. So they all got a written permission from Reddit to sell their Apps? There is no way for me to cover potential costs?",2,ejfo7tn
+Watchful1,"I believe the contact information is just a way for reddit to contact you. An email address in the app description is likely plenty.
+
+Can't help you with the privacy policy though.
+
+I'm reasonably certain that all the reddit apps with ads have permission or were somehow grandfathered in from before those terms of use went into effect.",2,ejfptb9

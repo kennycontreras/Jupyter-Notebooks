@@ -1,0 +1,12 @@
+﻿Author,Comment,Score,ID
+Watchful1,"[Reddit markdown](https://www.reddit.com/wiki/markdown)
+
+You can have a horizontal line by having `---` on a line by itself.
+
+You can make text smaller by putting `^` before each word and even smaller by putting `^^` before each word.",5,ek7vd9o
+3dsf,"to kinda add to to watchful1 answer  
+I use `***` and I think it needs 2 spaces after it, or at least it seems to work better for me.  (This formatting will disappear if you edit it in the fancy pants editor)   *see the line below for the result*
+***  
+
+With the `^`,  you can use `^(to make a sentence smaller)`  ^(to make a sentence smaller)",2,ek87gok
+Watchful1,"I can't seem to remember where it was, but I've found that the `^()` syntax doesn't work on some third party apps. It's more reliable to do a `^` before each word, especially if it's in a bot rather than typing it out each time.",2,ek8ehdm

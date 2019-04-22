@@ -1,0 +1,8 @@
+﻿Author,Comment,Score,ID
+Watchful1,"Different endpoints return different fields, even if you are retrieving the same object. And they can return different fields depending on whether you are logged in or not, whether you are the author of a post, whether you are a moderator, etc. The only surefire way to know what an endpoint will return is to try it and see what you get back.",3,ejvxzz2
+SimpleScribbler,"Thanks.  I do see that.  For example, I'm getting back 90+ fields for a submission and only 50+ fields for a comment from `api/info.`
+
+What I can't seem to find though is a complete list of what all those fields mean.  The archived github page I linked shows some of them, and I can more or less guess at many others, but there are still quite a few fields that don't seem to be explained anywhere, such as `wls`, `pwls`, `is_meta`, and so forth.
+
+Was just wondering if there is a complete list somewhere.",2,ejvzqyi
+SimpleScribbler,"I should add, I'd be happy to contribute to helping document some of this, but first I'd need to know what they all mean.",2,ejvzvfd

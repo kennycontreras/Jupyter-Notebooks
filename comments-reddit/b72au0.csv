@@ -1,0 +1,15 @@
+﻿Author,Comment,Score,ID
+shiruken,"I'd just use [PushShift](https://pushshift.io/api-parameters/) rather than dealing with Reddit search:
+
+[https://api.pushshift.io/reddit/search/submission/?url=slate.com/technology/2019/03/facebook-most-viral-story-texas-child-predator.html&fields=full\_link](https://api.pushshift.io/reddit/search/submission/?url=slate.com/technology/2019/03/facebook-most-viral-story-texas-child-predator.html&fields=full_link)
+
+    import requests
+    
+    my_url = 'slate.com/technology/2019/03/facebook-most-viral-story-texas-child-predator.html'
+    pushshift = 'https://api.pushshift.io/reddit/search/submission/'
+    request = requests.get('{}?url={}'.format(pushshift, my_url))
+    json = request.json()
+    for result in json['data']:
+        print(result['full_link'])",2,ejoufhv
+shaggorama,https://github.com/dmarx/psaw,3,ejoujmm
+Nebuchadrezar,"Thanks, I had no idea this existed.",3,ejoydr1

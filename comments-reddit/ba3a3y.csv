@@ -1,0 +1,12 @@
+﻿Author,Comment,Score,ID
+Watchful1,"You want the script, not the installed app.",1,ek97vo8
+nmtake,"Try this as the error message says:
+
+    reddit = praw.Reddit(client_id=CLIENT_ID,
+                     client_secret=None, 
+                     redirect_uri=REDIRECT_URI,
+                     user_agent='testscript by /u/' + YOURNAME)
+
+The Reddit instance can read threads and comments as a non-logged-in user can do that, but cannot submit threads or read PMs as a logged-in user.  To do the latter, your script needs to follow [OAuth2 Authorization code grant flow](https://praw.readthedocs.io/en/latest/getting_started/authentication.html#obtain-the-authorization-url).",1,ek9shxp
+SiliconRaven,"I am making an app that needs to be installed in other computers, so script does not work. I have read a lot online since I asked the question. I have found that reddit uses Auth0 2.0 which requires the user to enter their credentials. I am now looking at how I can make this happen. Thanks for the reply.",1,ek985n7
+SiliconRaven,"Thanks, I will try that in the morning. I am already in bed. ",1,ek9smxo

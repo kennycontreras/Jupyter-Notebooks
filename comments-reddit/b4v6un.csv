@@ -1,0 +1,24 @@
+﻿Author,Comment,Score,ID
+Watchful1,"> Only change I've made is to break out a succession of streams into parallel python programs (3x)
+
+Well that sounds like a fairly significant change to me.
+
+What version of praw are you on? Could you post more of your code?
+
+I'm fairly sure that just instantiating a reddit object doesn't make any requests, so the limits values would still be empty at that point. What do you need the rate limit values for? Praw should be handling all that for you automatically.",2,eja2i54
+ukpolbot,"We can max out our api quota and so only do housekeeping during quiet periods so it gets monitored for that and as an arbitrary measure of the sub activity.
+
+>I'm fairly sure that just instantiating a reddit object doesn't make any requests 
+
+That's actually a good point. Tried a dummy api request before info.limits and it burst into life. Thanks for that!
+
+Praw version is 6.1.1",1,ejababz
+bboe,"For reference this behavior is documented here:
+https://praw.readthedocs.io/en/latest/code_overview/other/auth.html#praw.models.Auth.limits
+
+> All values are initially None as these values are set in response to issued requests.
+
+How could we give that more clarity?",1,ejatfbr
+ukpolbot,"The docs are clear enough. Just one if those things, you think you know the simple routines inside out and then your own knowledge, or lack of, trips you up!
+
+Thanks for all the quick responses. ",2,ejbj3c5

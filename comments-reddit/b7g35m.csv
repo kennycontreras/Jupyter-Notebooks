@@ -1,0 +1,11 @@
+﻿Author,Comment,Score,ID
+LordKeren,"Assuming you're using PRAW:
+
+`submission.archived` returns `True` if it is archived, else `False`. 
+
+If you ever need to find the attributes of something follow these steps:
+
+https://praw.readthedocs.io/en/latest/getting_started/quick_start.html#determine-available-attributes-of-an-object",3,ejrofos
+JJP_SWFC,"Cheers, I was trying to use submission.id.archived just by guessing",1,ejrot3w
+LordKeren,"using pprint vars should be your go-to for things like this, it's super useful for a lot of the niche issues you'll run into ",2,ejrp2bg
+JJP_SWFC,"I'll try it, but I'll probably end up coming back here, the main reason is my code is trying to comment on all posts, but then is returning errors because obviously it can't do that on archived posts",1,ejrp7tz

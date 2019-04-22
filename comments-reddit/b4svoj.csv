@@ -1,0 +1,5 @@
+﻿Author,Comment,Score,ID
+Watchful1,"    ConfigParser.MissingSectionHeaderError: File contains no section headers.
+
+This is the relevant error. Your praw.ini file is formatted incorrectly. See [this page](https://praw.readthedocs.io/en/latest/getting_started/configuration/prawini.html).",3,ej8zxvb
+CaptainBloodBeard,Thanks! Worked perfectly,1,ej905uj

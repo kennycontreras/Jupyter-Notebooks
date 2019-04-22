@@ -1,0 +1,11 @@
+﻿Author,Comment,Score,ID
+shiruken,"I just dealt with this!
+
+    reddit = praw.Reddit()
+    for flair in reddit.subreddit('science').flair(limit=None):
+        user = flair['user'].name
+        flair_css_class = flair['flair_css_class']
+        flair_text = flair['flair_text']",10,ejqy6ar
+fredcorpuz06,Super rad!,1,ejzkkm5
+ChaosInTheWindyCity,"This is great, thank you!",2,ejr0qqx
+AwakenedToNightmare,What if the same flair is shared by many users? This code seems to get only one username.,1,ejwf8a4

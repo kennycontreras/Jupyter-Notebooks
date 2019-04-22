@@ -1,0 +1,5 @@
+﻿Author,Comment,Score,ID
+hsson,"I suggest reading up on some articles about authentication. But yes, the idea is that the refresh token expires a lot slower. So you should try and get a new access token using your refresh token, but if you get a error response (401/403) you need to re-authenticate again.",2,ejjd2nw
+Watchful1,"Refresh tokens don't expire. I'm personally using refresh tokens that I obtained 3+ years ago.
+
+They can be revoked though. Anyone can go to their preferences/apps page and cancel one.",2,ejjdqwt

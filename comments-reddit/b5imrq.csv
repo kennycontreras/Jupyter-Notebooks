@@ -1,0 +1,21 @@
+﻿Author,Comment,Score,ID
+Stuck_In_the_Matrix,Well -- this would make my life far simpler.  How did you discover this?,7,eje1iru
+Stenwalden,Is this documented somewhere?,6,ejdqfn4
+Watchful1,"I did a bit of research.
+
+Looks like this is a redesign feature. The links are available for every post, both in the post itself and in the listings. A get request to this post
+
+    wget https://new.reddit.com/r/redditdev/comments/b5imrq/reddit_now_provides_a_web_socket_for_fetching/
+
+includes the script tags with all the post data, including the `liveCommentsWebsocket` attribute.
+
+Each link is in the format
+
+    wss://ws-05ca86577a8823343.wss.redditmedia.com/link/7w17su?m=AQAAu7aaXCrus34otS3tYMNKfNqjeL79N5jsTJCIGhkAIbbKFeqx\
+
+with three ids/keys. `05ca86577a8823343`, `7w17su`, `AQAAu7aaXCrus34otS3tYMNKfNqjeL79N5jsTJCIGhkAIbbKFeqx`. The first one is sometimes the same between posts, the second is the post id, the third is unique every time. It appears the websocket works anonymously, I didn't need to pass credentials to access it and I got the same link regardless of whether I make the original request logged in or not.
+
+Unfortunately it does seem like it's only on a per post basis, so unless you're willing to open thousands of connections at once I don't think it will be all that useful for ingesting comments. I bet reddit is planning on using it to auto-update comments in threads, so unless they are willing to go the extra mile for us developers, I doubt they would have any use for a reddit wide one.",8,eje8vmf
+thecodingdude,No.,3,ejdvuxs
+Stuck_In_the_Matrix,"Ahhh -- thank you for doing the research though! It's always cool to discover things like this :)
+",1,ejhrk47

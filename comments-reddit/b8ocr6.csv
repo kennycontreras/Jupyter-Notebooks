@@ -1,0 +1,13 @@
+﻿Author,Comment,Score,ID
+Watchful1,"Praw [currently has a bug](https://github.com/praw-dev/praw/issues/1043) with streaming r/all. Well more correctly reddit has a bug with r/all, but praw isn't working around that bug properly. The end result is a lot of missed comments if you try to stream it.
+
+Your best options are to wait for praw to update, manually implement the suggested fix in that github issue, or switch to using pushshift for finding the keyword.
+
+As an aside, how did you end up with that formatting in your post? Where each line is surrounded by \` marks?",10,ejz5do9
+C0NSTABEL,"Would the script for instance run faster or slower if all the if statements were put together in one? If slower and if this is the main speed issue, which ones should go at the top and which ones should be last in the script?",2,ejz2bb8
+C0NSTABEL,"Probably because I copy pasted from sublime text directly, the ‘ marks are not actually in the code",6,ejz5iz4
+Watchful1,"Hmm, so you didn't do anything to add them? I know the new web interface has code block buttons, but I didn't think they would do it like that.",4,ejz6dna
+C0NSTABEL,I copy pasted and then clicked the “inline code” button in the pc browser post editor,3,ejz6hs5
+Watchful1,"Ahha. I should complain to r/redesign about that. It doesn't do what it's supposed to do at all.
+
+If you click ""code block"" instead, it's formatted much more cleanly.",4,ejz6o45

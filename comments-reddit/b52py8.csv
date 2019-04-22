@@ -1,0 +1,30 @@
+﻿Author,Comment,Score,ID
+,[deleted],4,ejasg4j
+bboe,"You actually can via a GET request to the submit endpoint with a `url` parameter:
+
+    https://www.reddit.com/submit?url={url}
+
+Here's an example:
+
+https://www.reddit.com/submit?url=https://i.redd.it/qhn25un3fzn21.gif
+
+    ",1,ejasvgt
+dw36,"good idea. thanks
+
+Edit: major downside is must be logged-in, but it's still possibly the only way to do it",2,ejauxfa
+dw36,"Looks like this might be a better solution since it doesn't require login:
+
+https://www.reddit.com/search?q=url:https://i.redd.it/qhn25un3fzn21.gif
+
+or to help avoid potential loose matching:
+
+https://www.reddit.com/search?q=site:redd.it+url:https://i.redd.it/qhn25un3fzn21.gif
+
+Can also get json like this:
+
+https://www.reddit.com/search.json?q=url:https://i.redd.it/qhn25un3fzn21.gif
+
+To also work with preview images and videos I've settled on stripping the subdomain completely:
+
+https://www.reddit.com/search.json?q=site:redd.it+url:redd.it/qhn25un3fzn21.gif
+",2,ejb9ibg

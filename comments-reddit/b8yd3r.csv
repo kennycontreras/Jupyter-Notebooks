@@ -1,0 +1,6 @@
+﻿Author,Comment,Score,ID
+Barskie,"https://www.reddit.com/dev/api/#GET_api_info
+
+Posts are t3 ids, so just pass in the fullnames.",2,ek0y927
+therealandytuba,"https://www.reddit.com/comments/b8yd3r/.json (note the .json) is one approach. If users can log in and grant your app an Oauth token, you can use oauth.reddit.com with that same path.",1,ek0xcsf
+philly-vanilly,Thats just what I was looking for. Thanks!,1,ek11ymx
